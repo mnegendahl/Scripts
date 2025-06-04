@@ -1,4 +1,23 @@
-﻿# Debug mode for different email recipient
+<#
+.SYNOPSIS
+    This script generates a monthly Azure cost report across all subscriptions.
+
+.DESCRIPTION
+    The script connects to Azure using a service principal, queries cost data for the current month,
+    and sends a formatted HTML email report via SendGrid.
+
+.PREREQUISITES
+    - A service principal must be created and granted **Reader** role on all subscriptions 
+      that should be included in the cost report.
+    - This service principal must be added as a credential asset in Azure Automation.
+    - SendGrid SMTP credentials must also be stored as an Azure Automation credential asset.
+    - Update placeholder values such as email addresses, tenant ID, and logo URL to match your environment.
+
+.EXAMPLE
+    This script is intended to run as an Azure Automation runbook on a schedule (e.g., monthly).
+#>
+
+# Debug mode for different email recipient
 $debug = $false
 
 # For Azure cost access (Managed Identity or SPN with Reader)
